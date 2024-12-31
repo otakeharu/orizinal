@@ -27,7 +27,6 @@ class DBViewController: UIViewController {
 //    var hevents : [Event]
 
     let jsonData = UserDefaults.standard.object(forKey: "hall")
-
     if jsonData == nil {
       hall = All(days:[])
     } else {
@@ -37,6 +36,7 @@ class DBViewController: UIViewController {
       }
       hall = halls
     }
+
     // 遙がやりたいのは
     // days のなかに目的の日付があるか探す
     // ある場合はその日付のDayをhday に入れる
