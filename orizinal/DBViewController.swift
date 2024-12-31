@@ -47,12 +47,10 @@ class DBViewController: UIViewController {
     if hall.days.isEmpty {
       hall.days = [Day(date: Date(), events:[])]
     }
-    // hallの最初の日付をhdayで覚えておく
-    var hday = hall.days[0]
 
-    // イベントを新しく作り、覚えていた最初の日付(hday)のeventsに追加する
-    var hevent: Event = Event(content: contentInput.text ?? "", time: Date(), color: "red")
-    hday.events.append(hevent)
+    // イベントを新しく作り、覚えていた最初の日付(hall.days[0])のeventsに追加する
+    let hevent: Event = Event(content: contentInput.text ?? "", time: Date(), color: "red")
+    hall.days[0].events.append(hevent)
 
     let encoder = JSONEncoder()
     guard let jsonValue = try? encoder.encode(hall) else {
@@ -77,7 +75,7 @@ class DBViewController: UIViewController {
       let hevents : [Event] = hday.events
       resultText.text = "content: "
       for hevent in hevents {
-        resultText.text += hevent.content
+        resultText.text += hevent.content + ","
       }
     }
   }
