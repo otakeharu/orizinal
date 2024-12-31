@@ -48,7 +48,7 @@ class DBViewController: UIViewController {
       hall.days = [Day(date: Date(), events:[])]
     }
 
-    // イベントを新しく作り、覚えていた最初の日付(hall.days[0])のeventsに追加する
+    // イベントを新しく作り、最初の日付(hall.days[0])のeventsに追加する
     let hevent: Event = Event(content: contentInput.text ?? "", time: Date(), color: "red")
     hall.days[0].events.append(hevent)
 
