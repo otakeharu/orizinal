@@ -64,17 +64,29 @@ class inputViewController: UIViewController{
   @IBAction func TodoaddButton(_ sender: Any) {
 
     let TodoList = TodoTextField.text!
+//TodoListにTodoTextFieldのtextを代入
+      print("hozon ga osareta")
+      print(TodoList)
+
+
     Todoindividual = UserDefaults.standard.stringArray(forKey: "TodoList") ?? []
-    print(Todoindividual)
-//    Todoindividual.append(todo)
-//    UserDefaults.standard.set(Todoindividual, forKey: "TodoList")
-//   TodoTextField.endEditing(true)
-//    print(todo)
-//    dismiss(animated: true)
+//TodoindividualにUserDefaults内のTodoListを代入
+      print("step 1: read todoList from UserDefaults")
+      print(Todoindividual)
+      print("step 2: todolist ni yotei wo tsuika")
+
+    Todoindividual.append(TodoList)
+//todoindividual(UserDefaults) にtodolistを追加
+      print(Todoindividual)
+
+    UserDefaults.standard.set(Todoindividual, forKey: "TodoList")
+//UserDefaultsにtodolistという名でTodoindividualを保存
+      print("Oboeta!!")
+
+    TodoTextField.endEditing(true)
+    dismiss(animated: true)
+    
  }
-
-
-
 
 }
 

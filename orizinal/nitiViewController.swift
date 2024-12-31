@@ -15,10 +15,10 @@ class nitiViewController: UIViewController, UITableViewDelegate,UITableViewDataS
   @IBOutlet var enLabel: UILabel!
   @IBOutlet var tableView: UITableView!
   //@IBOutlet var titleLabel: UILabel!
-    
-    @IBOutlet var yearLabel: UILabel!
-    @IBOutlet var monthLabel: UILabel!
-    @IBOutlet var dayLabal: UILabel!
+
+  @IBOutlet var yearLabel: UILabel!
+  @IBOutlet var monthLabel: UILabel!
+  @IBOutlet var dayLabal: UILabel!
 
   var Todoindividual: [String] = []
   var saveData: UserDefaults = UserDefaults.standard
@@ -27,8 +27,8 @@ class nitiViewController: UIViewController, UITableViewDelegate,UITableViewDataS
 
 
   var dataFromCalendarYear: String?
-    var dataFromCalendarMonth: String?
-    var dataFromCalendarDay: String?
+  var dataFromCalendarMonth: String?
+  var dataFromCalendarDay: String?
 
 
   override func viewDidLoad() {
@@ -43,16 +43,11 @@ class nitiViewController: UIViewController, UITableViewDelegate,UITableViewDataS
     guard let todo = UserDefaults.standard.object(forKey: "TodoList") as? [String] else { return }
     Todoindividual = todo
     print("todoindividual",Todoindividual)
-      
   }
-    
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        if let receivedDate = dataFromNextVC {
-//            print("Received date: \(receivedDate)")
-//        }
-//    }
-    
+//  required init?(coder: NSCoder) {
+//    fatalError("init(coder:) has not been implemented")
+//  }
+
     @IBAction func unwindToNitiViewController(_ segue: UIStoryboardSegue) {
         if let sourceVC = segue.source as? tukiViewController {
             yearLabel.text = sourceVC.selectYear
