@@ -21,8 +21,10 @@ class DBViewController: UIViewController {
       // Do any additional setup after loading the view.
     }
 
+
   @IBAction func save() {
     var hall : All
+    //保存
 //    var hdays : [Day]
 //    var hevents : [Event]
 
@@ -37,13 +39,8 @@ class DBViewController: UIViewController {
       }
       hall = halls
     }
-    // 遙がやりたいのは
-    // days のなかに目的の日付があるか探す
-    // ある場合はその日付のDayをhday に入れる
-    // ない場合はその日付のDayを新しく作って hday に入れる
 
-    // hallの中のdaysに何も日付のデータがなければ、
-    // 新しく日付のデータを作り hall の最初の日付に登録する。
+
     if hall.days.isEmpty {
       hall.days = [Day(date: Date(), events:[])]
     }
@@ -58,9 +55,13 @@ class DBViewController: UIViewController {
     }
     UserDefaults.standard.set(jsonValue, forKey: "hall")
     resultText.text = "Saved event: " + hevent.content
+
   }
 
+
+
   @IBAction func load() {
+    //表示
     let jsonData = UserDefaults.standard.object(forKey: "hall")
 
     if jsonData == nil {
@@ -92,3 +93,10 @@ class DBViewController: UIViewController {
     */
 
 }
+
+// 遙がやりたいのは
+// days のなかに目的の日付があるか探す
+// ある場合はその日付のDayをhday に入れる
+// ない場合はその日付のDayを新しく作って hday に入れる
+// hallの中のdaysに何も日付のデータがなければ、
+// 新しく日付のデータを作り hall の最初の日付に登録する。

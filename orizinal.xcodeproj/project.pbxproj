@@ -13,12 +13,12 @@
 		492A65292A7A7345004DF8C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 492A65272A7A7345004DF8C2 /* Main.storyboard */; };
 		492A652B2A7A7347004DF8C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 492A652A2A7A7347004DF8C2 /* Assets.xcassets */; };
 		492A652E2A7A7347004DF8C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 492A652C2A7A7347004DF8C2 /* LaunchScreen.storyboard */; };
-		492A65362A945278004DF8C2 /* nitiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492A65352A945278004DF8C2 /* nitiViewController.swift */; };
+		492A65362A945278004DF8C2 /* enViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492A65352A945278004DF8C2 /* enViewController.swift */; };
 		492A653E2A9F4372004DF8C2 /* PKHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 492A653D2A9F4372004DF8C2 /* PKHUD */; };
 		492A65412A9F4545004DF8C2 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 492A65402A9F4545004DF8C2 /* FSCalendar */; };
 		494463D02D0E7E56009F97F5 /* eventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494463CF2D0E7E56009F97F5 /* eventModel.swift */; };
 		494463D22D0E817E009F97F5 /* DBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494463D12D0E817E009F97F5 /* DBViewController.swift */; };
-		49471DCC2C7AD7EF00709417 /* niti2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49471DCB2C7AD7EF00709417 /* niti2ViewController.swift */; };
+		49471DCC2C7AD7EF00709417 /* nitiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49471DCB2C7AD7EF00709417 /* nitiViewController.swift */; };
 		495C0FF72B208D5B002AADC2 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 495C0FF62B208D5B002AADC2 /* icon.png */; };
 		4966C72B2AFB9AD4005A766A /* tukiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4966C72A2AFB9AD4005A766A /* tukiViewController.swift */; };
 		49CB2F492D22DDE600DA0A04 /* DB2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CB2F482D22DDE600DA0A04 /* DB2ViewController.swift */; };
@@ -33,10 +33,10 @@
 		492A652A2A7A7347004DF8C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		492A652D2A7A7347004DF8C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		492A652F2A7A7347004DF8C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		492A65352A945278004DF8C2 /* nitiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nitiViewController.swift; sourceTree = "<group>"; };
+		492A65352A945278004DF8C2 /* enViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enViewController.swift; sourceTree = "<group>"; };
 		494463CF2D0E7E56009F97F5 /* eventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eventModel.swift; sourceTree = "<group>"; };
 		494463D12D0E817E009F97F5 /* DBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBViewController.swift; sourceTree = "<group>"; };
-		49471DCB2C7AD7EF00709417 /* niti2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = niti2ViewController.swift; sourceTree = "<group>"; };
+		49471DCB2C7AD7EF00709417 /* nitiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nitiViewController.swift; sourceTree = "<group>"; };
 		495C0FF62B208D5B002AADC2 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		4966C72A2AFB9AD4005A766A /* tukiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tukiViewController.swift; sourceTree = "<group>"; };
 		49CB2F482D22DDE600DA0A04 /* DB2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DB2ViewController.swift; sourceTree = "<group>"; };
@@ -76,8 +76,8 @@
 			children = (
 				492A65212A7A7345004DF8C2 /* AppDelegate.swift */,
 				492A65232A7A7345004DF8C2 /* SceneDelegate.swift */,
-				49471DCB2C7AD7EF00709417 /* niti2ViewController.swift */,
-				492A65352A945278004DF8C2 /* nitiViewController.swift */,
+				49471DCB2C7AD7EF00709417 /* nitiViewController.swift */,
+				492A65352A945278004DF8C2 /* enViewController.swift */,
 				4966C72A2AFB9AD4005A766A /* tukiViewController.swift */,
 				492A65252A7A7345004DF8C2 /* inputViewController.swift */,
 				494463D12D0E817E009F97F5 /* DBViewController.swift */,
@@ -174,10 +174,10 @@
 			files = (
 				492A65262A7A7345004DF8C2 /* inputViewController.swift in Sources */,
 				492A65222A7A7345004DF8C2 /* AppDelegate.swift in Sources */,
-				492A65362A945278004DF8C2 /* nitiViewController.swift in Sources */,
+				492A65362A945278004DF8C2 /* enViewController.swift in Sources */,
 				494463D02D0E7E56009F97F5 /* eventModel.swift in Sources */,
 				49CB2F492D22DDE600DA0A04 /* DB2ViewController.swift in Sources */,
-				49471DCC2C7AD7EF00709417 /* niti2ViewController.swift in Sources */,
+				49471DCC2C7AD7EF00709417 /* nitiViewController.swift in Sources */,
 				4966C72B2AFB9AD4005A766A /* tukiViewController.swift in Sources */,
 				494463D22D0E817E009F97F5 /* DBViewController.swift in Sources */,
 				492A65242A7A7345004DF8C2 /* SceneDelegate.swift in Sources */,

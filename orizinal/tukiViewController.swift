@@ -23,8 +23,10 @@ class tukiViewController: UIViewController, UITableViewDelegate,UITableViewDataS
     var selectMonth: String = ""
     var selectDay: String = ""
 
+//  画面が開かれた時にされる処理
   override func viewDidLoad() {
     super.viewDidLoad()
+
     tableView.delegate = self
     tableView.dataSource = self
     self.calendar.dataSource = self
@@ -100,7 +102,7 @@ class tukiViewController: UIViewController, UITableViewDelegate,UITableViewDataS
 }
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-      if let prevVC = segue.destination as? nitiViewController {
+      if let prevVC = segue.destination as? enViewController {
           prevVC.dataFromCalendarYear = selectYear
           prevVC.dataFromCalendarMonth = selectMonth
           prevVC.dataFromCalendarDay = selectDay
