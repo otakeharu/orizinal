@@ -14,7 +14,6 @@ class enViewController: UIViewController, UITableViewDelegate,UITableViewDataSou
 
   @IBOutlet var enLabel: UILabel!
   @IBOutlet var tableView: UITableView!
-
   @IBOutlet var yearLabel: UILabel!
   @IBOutlet var monthLabel: UILabel!
   @IBOutlet var dayLabel: UILabel!
@@ -48,24 +47,24 @@ class enViewController: UIViewController, UITableViewDelegate,UITableViewDataSou
 
       let day = dataAll.days[0]
       let events : [Event] = day.events
-      print("content: ")
-      for event in events {
-        print(event.content + ",")
-      }
+      //      print("content: ")
+      //      for event in events {
+      //        print(event.content + ",")
+      //      }
     }
   }
-//  required init?(coder: NSCoder) {
-//    fatalError("init(coder:) has not been implemented")
-//  }
+  //  required init?(coder: NSCoder) {
+  //    fatalError("init(coder:) has not been implemented")
+  //  }
 
-    @IBAction func unwindToNitiViewController(_ segue: UIStoryboardSegue) {
-        if let sourceVC = segue.source as? tukiViewController {
-            yearLabel.text = sourceVC.selectYear
-            monthLabel.text = sourceVC.selectMonth
-            dayLabel.text = sourceVC.selectDay
+  @IBAction func unwindToNitiViewController(_ segue: UIStoryboardSegue) {
+    if let sourceVC = segue.source as? tukiViewController {
+      yearLabel.text = sourceVC.selectYear
+      monthLabel.text = sourceVC.selectMonth
+      dayLabel.text = sourceVC.selectDay
 
-        }
     }
+  }
 
 
   class CircleGraphViewController: UIViewController {
@@ -172,8 +171,6 @@ class enViewController: UIViewController, UITableViewDelegate,UITableViewDataSou
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     //todolist = UserDefaults.standard.stringArray(forKey: "todolist")
-      
-  
 
   }
 
@@ -207,16 +204,16 @@ class enViewController: UIViewController, UITableViewDelegate,UITableViewDataSou
   //編集モードがオンの時に行われる処理
   override func setEditing(_ editing: Bool, animated: Bool) {
 
-//    super.setEditing(editing, animated: animated)
-//
-//    tableView.setEditing(editing, animated: animated)
-//    tableView.isEditing = editing
-//    tableView.dataSource = self
-//    tableView.delegate = self
-//
-//    UserDefaults.standard.register(defaults: ["TodoList": []])
-//    //Do any additional setup after loading the view.
-//    Todoindividual = UserDefaults.standard.object(forKey: "TodoList") as! [String]
+    //    super.setEditing(editing, animated: animated)
+    //
+    //    tableView.setEditing(editing, animated: animated)
+    //    tableView.isEditing = editing
+    //    tableView.dataSource = self
+    //    tableView.delegate = self
+    //
+    //    UserDefaults.standard.register(defaults: ["TodoList": []])
+    //    //Do any additional setup after loading the view.
+    //    Todoindividual = UserDefaults.standard.object(forKey: "TodoList") as! [String]
   }
 
   // let alert = UIAlertController(title: "保存", message:"メモの保存が完了しました。", preferredStyle: .alert)

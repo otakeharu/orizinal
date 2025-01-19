@@ -13,7 +13,7 @@ class DBViewController: UIViewController {
   @IBOutlet var contentInput: UITextField!
   @IBOutlet var resultText: UITextView!
 
-  var result: Event = Event(content: "", time: Date(), color: "")
+  var result: Event = Event(content: "", strTime: Date(), endTime: Date(), color: "")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +46,7 @@ class DBViewController: UIViewController {
     }
 
     // イベントを新しく作り、最初の日付(hall.days[0])のeventsに追加する
-    let hevent: Event = Event(content: contentInput.text ?? "", time: Date(), color: "red")
+    let hevent: Event = Event(content: contentInput.text ?? "", strTime: Date(), endTime: Date(),  color: "red")
     hall.days[0].events.append(hevent)
 
     let encoder = JSONEncoder()

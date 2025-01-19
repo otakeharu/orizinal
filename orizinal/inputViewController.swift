@@ -13,6 +13,7 @@ class inputViewController: UIViewController{
   @IBOutlet var dayTextField: UITextField!
   var datePicker: UIDatePicker = UIDatePicker()
 
+  var selectedStartDate: Date = Date()
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -25,7 +26,7 @@ class inputViewController: UIViewController{
 
     let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
     let spacelItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
-    let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(save))
+    let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
     toolbar.setItems([spacelItem, doneItem], animated: true)
 
     // インプットビュー設定
@@ -49,18 +50,14 @@ class inputViewController: UIViewController{
     }
   }
 
-//  @IBAction func done() {
-//    dayTextField.endEditing(true)
-//    let formatter = DateFormatter()
-//    formatter.dateFormat = "yyyy-MM-dd a h:mm"
-//
-//    dayTextField.text = "\(formatter.string(from: Date()))"
-//    UserDefaults.standard.set(datePicker.date, forKey: "selectedDate")
-//    print("保存された日時: \(datePicker.date)")
-//
-//    save()
-//
-//  }
+  @objc func done() {
+    dayTextField.endEditing(true)
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyy-MM-dd a h:mm"
+    selectedStartDate = datePicker.date
+    dayTextField.text = "\(formatter.string(from: datePicker.date))"
+  }
+
   //save
   @IBAction func save() {
     var dataAll: All
@@ -80,9 +77,19 @@ class inputViewController: UIViewController{
     if dataAll.days.isEmpty {
       dataAll.days = [Day(date: Date(), events:[])]
     }
+    let date = DateUtils.dateFromString(string: dayTextField.text ?? "", format: "yyyy-MM-dd")
+    let time = DateUtils.dateFromString(string: dayTextField.text ?? "", format: "H:mm")
     // イベントを新しく作り、最初の日付(All.days[0])のeventsに追加する
-    let event: Event = Event(content: TodoTextField.text ?? "", time: Date(), color: "red")
-    dataAll.days[0].events.append(event)
+    let event: Event = Event(content: TodoTextField.text ?? "", strTime: time, endTime: time, color: "red")
+
+    if let index = dataAll.days.firstIndex(where: { $0.date == date }) {
+        // 一致する Day オブジェクトが見つかった場合、その events 配列にイベントを追加
+        dataAll.days[index].events.append(event)
+    } else {
+        // 一致する Day オブジェクトが見つからない場合、新しい Day オブジェクトを作成して events 配列に追加
+        let newDay = Day(date: date, events: [event])
+        dataAll.days.append(newDay)
+    }
 
     let encoder = JSONEncoder()
     guard let jsonValue = try? encoder.encode(dataAll) else {
@@ -90,6 +97,8 @@ class inputViewController: UIViewController{
     }
     UserDefaults.standard.set(jsonValue, forKey: "All")
     print("Saved event: " + event.content)
+
+    dismiss(animated: true)
   }
 
   @IBOutlet var TodoTextField: UITextField!
@@ -122,5 +131,11 @@ class inputViewController: UIViewController{
 
 }
 
-
-
+class DateUtils {
+    class func dateFromString(string: String, format: String) -> Date {
+        let formatter: DateFormatter = DateFormatter()
+        formatter.calendar = Calendar(identifier: .gregorian)
+        formatter.dateFormat = format
+        return formatter.date(from: string) ?? Date()
+    }
+}

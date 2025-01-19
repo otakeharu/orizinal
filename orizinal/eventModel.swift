@@ -18,7 +18,8 @@ struct Day: Codable {
 
 struct Event: Codable {
   var content: String
-  var time: Date
+  var strTime: Date
+  var endTime: Date
   var color: String
 }
 
